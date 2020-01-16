@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conceptual Model</title>
+</head>
+<body>
+<h1>Conceptual Model</h1>
+<p>Weak Entity: The Internet</p>
+<p>Strong Entity: The Buyers/Sellers</p>
+<h2>Profile</h2>
+<ul>
+    <li>profileId (primary key)</li>
+    <li>profileEmail</li>
+    <li>profileAtHandle</li>
+    <li>profileCreateDate</li>
+</ul>
+<h2>Payment</h2>
+<ul>
+    <li>paymentId (foreign key)</li>
+    <li>paymentMethod</li>
+    <li>paymentDate</li>
+</ul>
+<h2>Item</h2>
+<ul>
+    <li>itemId</li>
+    <li>itemSellerId</li>
+    <li>itemDescription</li>
+    <li>itemPrice</li>
+    <li>itemShipDate</li>
+</ul>
+</body>
+</html>
