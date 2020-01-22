@@ -20,12 +20,12 @@ CREATE TABLE payment (
 	-- this is for yet another primary key...
 	paymentId BINARY(16) NOT NULL,
 	-- this is for a foreign key
-	paymentMethod BINARY(16) NOT NULL,
-	paymentDate DATETIME(6) NOT NULL,
+	paymentProfileId BINARY(16) NOT NULL,
+	paymentItemId BINARY(16) NOT NULL,
 	-- this creates an index before making a foreign key
 	INDEX(paymentId),
 	-- this creates the actual foreign key relation
-	FOREIGN KEY(paymentMethod) REFERENCES profile(profileId),
+	FOREIGN KEY(paymentProfileId) REFERENCES profile(profileId),
 	-- and finally create the primary key
 	PRIMARY KEY(paymentId)
 );
@@ -33,14 +33,14 @@ CREATE TABLE payment (
 CREATE TABLE item (
 	-- these are still foreign keys
 	itemId BINARY(16) NOT NULL,
-	itemSellerId BINARY(16) NOT NULL,
+	itemProfileId BINARY(16) NOT NULL,
 	itemCreateDate DATETIME(6) NOT NULL,
 	-- index the foreign keys
 	INDEX(itemId),
-	INDEX(itemSellerId),
+	INDEX(itemProfileId),
 	-- create the foreign key relations
-	FOREIGN KEY(itemSellerId) REFERENCES profile(profileId),
-	FOREIGN KEY(itemCreateDate) REFERENCES payment(paymentId),
+	FOREIGN KEY(itemProfileId) REFERENCES profile(profileId),
+	FOREIGN KEY(itemCreateDate) REFERENCES payment(paymentProfileId),
 	-- finally, create a composite foreign key with the two foreign keys
 	PRIMARY KEY(itemId)
 );
